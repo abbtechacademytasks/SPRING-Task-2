@@ -1,0 +1,154 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T01:15:21.086+04:00  INFO 49980 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Starting TestdersApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 49980 (C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders\target\testders-0.0.1-SNAPSHOT.jar started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2)
+2026-11-02T01:15:21.090+04:00  INFO 49980 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-11-02T01:15:21.949+04:00  INFO 49980 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-11-02T01:15:21.969+04:00  INFO 49980 --- [testders] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-02T01:15:21.971+04:00  INFO 49980 --- [testders] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-02T01:15:22.004+04:00  INFO 49980 --- [testders] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-02T01:15:22.006+04:00  INFO 49980 --- [testders] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+UserRepository yaradildi: 170082758
+UserRepository hazirdir, 3 user yuklendi
+UserInfoService yaradildi: 2045143855
+UserInfoController yaradildi: 100048427
+2026-11-02T01:15:22.387+04:00  INFO 49980 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2026-11-02T01:15:22.404+04:00  INFO 49980 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Started TestdersApplication in 1.815 seconds (process running for 2.248)
+2026-11-02T01:15:29.879+04:00  INFO 49980 --- [testders] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-02T01:15:29.880+04:00  INFO 49980 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-02T01:15:29.881+04:00  INFO 49980 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[Controller] requestId=93807f76
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=93807f76
+[Repository] requestId=93807f76
+RecentlyViewedUsers yaradildi: 2f556863-a37d-40af-a07b-45c5eccdcf84
+Request duration: 17 ms
+[Controller] requestId=3fbdf63b
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=3fbdf63b
+[Repository] requestId=3fbdf63b
+Request duration: 1 ms
+[Controller] requestId=47bed653
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=47bed653
+[Repository] requestId=47bed653
+Request duration: 2 ms
+[Controller] requestId=4050ffaa
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=4050ffaa
+[Repository] requestId=4050ffaa
+Request duration: 2 ms
+[Repository] requestId=375c40d8
+[Repository] requestId=375c40d8
+[Repository] requestId=375c40d8
+RecentlyViewedUsers yaradildi: 19c0fe65-e665-4e2a-9212-55026cdfdb7a
+[Controller] requestId=d41107dd
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=d41107dd
+[Repository] requestId=d41107dd
+RecentlyViewedUsers yaradildi: 33f0e3f9-4f12-44ff-a043-7d7b93706ce6
+Request duration: 2 ms
+[Controller] requestId=957d77a8
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=957d77a8
+[Repository] requestId=957d77a8
+Request duration: 2 ms
+[Controller] requestId=007410a6
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=007410a6
+[Repository] requestId=007410a6
+Request duration: 2 ms
+[Controller] requestId=f626833d
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=f626833d
+[Repository] requestId=f626833d
+Request duration: 3 ms
+[Repository] requestId=06e1de2c
+[Repository] requestId=06e1de2c
+[Repository] requestId=06e1de2c
+RecentlyViewedUsers yaradildi: fd13e1c6-ee79-4e90-b8e1-b03aa7ddf171
+UserAuditLog yaradildi: 7880f2d3-3254-4cba-a01a-d9a954289f45
+Audit: 7880f2d3-3254-4cba-a01a-d9a954289f45, action=CREATE_USER
+UserAuditLog yaradildi: f5e1078f-3273-44e6-98a9-10f36464acf2
+Audit: f5e1078f-3273-44e6-98a9-10f36464acf2, action=CREATE_USER
+UserAuditLog yaradildi: 7e598c2d-280c-4fa7-a2b0-5b8090b3e089
+Audit: 7e598c2d-280c-4fa7-a2b0-5b8090b3e089, action=CREATE_USER
+UserAuditLog yaradildi: 8553a96e-6d7e-434e-aa36-bcc41c3cfe55
+Audit: 8553a96e-6d7e-434e-aa36-bcc41c3cfe55, action=CREATE_USER
+[Controller] requestId=5eae241a
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=5eae241a
+[Repository] requestId=5eae241a
+RecentlyViewedUsers yaradildi: c3db3908-3e02-4e09-a660-dfaca4a599c7
+Request duration: 2 ms
+[Controller] requestId=f674be47
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=f674be47
+[Repository] requestId=f674be47
+Request duration: 1 ms
+[Controller] requestId=3d1c5500
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=3d1c5500
+[Repository] requestId=3d1c5500
+Request duration: 1 ms
+[Controller] requestId=3fd14060
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=3fd14060
+[Repository] requestId=3fd14060
+Request duration: 1 ms
+[Controller] requestId=0f020698
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=0f020698
+[Repository] requestId=0f020698
+Request duration: 1 ms
+[Controller] requestId=b57210b8
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=b57210b8
+[Repository] requestId=b57210b8
+Request duration: 1 ms
+[Controller] requestId=85c5cbc8
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=85c5cbc8
+[Repository] requestId=85c5cbc8
+Request duration: 1 ms
+[Repository] requestId=05def30d
+[Repository] requestId=05def30d
+[Repository] requestId=05def30d
+[Repository] requestId=05def30d
+[Repository] requestId=05def30d
+[Controller] requestId=42ba51d5
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=42ba51d5
+[Repository] requestId=42ba51d5
+Request duration: 1 ms
+[Repository] requestId=73348f4d
+[Repository] requestId=73348f4d
+[Repository] requestId=73348f4d
+[Repository] requestId=73348f4d
+[Repository] requestId=73348f4d
+[Controller] requestId=2e712fba
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=2e712fba
+[Repository] requestId=2e712fba
+RecentlyViewedUsers yaradildi: f646b66b-c313-41b4-b9d2-46727679eb89
+Request duration: 3 ms
+RecentlyViewedUsers baglandi: 19c0fe65-e665-4e2a-9212-55026cdfdb7a
+RecentlyViewedUsers baglandi: 2f556863-a37d-40af-a07b-45c5eccdcf84
+RecentlyViewedUsers baglandi: fd13e1c6-ee79-4e90-b8e1-b03aa7ddf171
+RecentlyViewedUsers baglandi: 33f0e3f9-4f12-44ff-a043-7d7b93706ce6
+RecentlyViewedUsers baglandi: c3db3908-3e02-4e09-a660-dfaca4a599c7
+RecentlyViewedUsers baglandi: f646b66b-c313-41b4-b9d2-46727679eb89
+[Controller] requestId=4f876bfa
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=4f876bfa
+[Repository] requestId=4f876bfa
+RecentlyViewedUsers yaradildi: e893be1c-4d00-4b4f-af30-f6bab6334e7c
+Request duration: 1 ms
+RecentlyViewedUsers baglandi: e893be1c-4d00-4b4f-af30-f6bab6334e7c

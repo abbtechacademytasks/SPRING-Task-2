@@ -1,0 +1,103 @@
+{
+  "a": [
+    {
+      "id": 1,
+      "fullName": "Ana",
+      "email": "ana@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:15:22.1307192"
+    },
+    {
+      "id": 2,
+      "fullName": "Murad",
+      "email": "murad@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:15:22.1317194"
+    },
+    {
+      "id": 3,
+      "fullName": "Ali",
+      "email": "ali@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:15:22.1317194"
+    }
+  ],
+  "b": [],
+  "aIds": "1,2,3",
+  "bCount": 0,
+  "time": "2026-11-02T01:15:46.4345659+04:00",
+  "lastFive": [
+    {
+      "id": 7,
+      "fullName": "Session 7",
+      "email": "session7@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5324218"
+    },
+    {
+      "id": 6,
+      "fullName": "Session 6",
+      "email": "session6@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5274232"
+    },
+    {
+      "id": 5,
+      "fullName": "Session 5",
+      "email": "session5@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5222517"
+    },
+    {
+      "id": 4,
+      "fullName": "Session 4",
+      "email": "session4@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.4708655"
+    },
+    {
+      "id": 3,
+      "fullName": "Ali",
+      "email": "ali@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:15:22.1317194"
+    }
+  ],
+  "afterDuplicate": [
+    {
+      "id": 5,
+      "fullName": "Session 5",
+      "email": "session5@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5222517"
+    },
+    {
+      "id": 7,
+      "fullName": "Session 7",
+      "email": "session7@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5324218"
+    },
+    {
+      "id": 6,
+      "fullName": "Session 6",
+      "email": "session6@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.5274232"
+    },
+    {
+      "id": 4,
+      "fullName": "Session 4",
+      "email": "session4@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:16:04.4708655"
+    },
+    {
+      "id": 3,
+      "fullName": "Ali",
+      "email": "ali@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:15:22.1317194"
+    }
+  ]
+}

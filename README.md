@@ -127,6 +127,38 @@ singleton yaradılarkən aktiv HTTP request yoxdur. Sonra RequestScope bərpa ed
 RequestScope default olaraq TARGET_CLASS proxy istifadə edir. getClass çıxışında $$SpringCGLIB$$ görünür.
 Proxy singleton-da qalır,method çağırışını cari HTTP request-in həqiqi obyektinə ötürür.
 
+## Bölmə 4 Session
+
+### Tapşırıq 20–22
+
+RecentlyViewedUsers session scope-dadır. Son5fərqliID saxlanır, ən yeni əvvəldədir.
+TəkrarID əvvəlki yerindən çıxıb əvvələ keçir. synchronized metodlar eyni session-dan paralel
+sorğuları qoruyur; getUsers dəyişdirilməyən snapshot qaytarır.
+Uğurlu getUserById-dən sonra ID əlavə olunur. Tapılmayan user tarixçəyə düşmür.
+/recent service vasitəsilə ID-ləri tam UserInfoResponse-a çevirir.
+
+### Tapşırıq 23
+
+application.yaml-da server.servlet.session.timeout: 1m qoyulub.
+Tomcat background yoxlaması üçün background-processor-delay: 1s istifadə olunur;
+session dəqiq60-cı saniyədə deyil, container-in növbəti expiry yoxlamasında silinə bilər.
+PreDestroy zamanı tarixçə təmizlənir və bean-in ID-si log-a yazılır.
+[Session HTTP yoxlamaları](docs/checks/session-http.json), [expiry nəticəsi](docs/checks/session-expiry.json),
+[log](docs/checks/session-app.log).
+
+### Tapşırıq 24
+
+Eyni cookie ilə /1,/3,/2,/1 → /recent nəticəsi ID1,2,3 olan tam user-lərdir.
+Ayrı cookie jar-da /recent boşdur. Chrome və incognito ayrıca JSESSIONID saxlayır;
+Postman da Chrome-un cookie-sini avtomatik götürmür, ona görə tarixçəsi boş ola bilər.
+Cookie-ni silmək və ya session müddətinin bitməsi yeni tarixçə yaradır.
+
+### Tapşırıq 25
+
+Bu field request scope-da olsaydı hər yeni HTTP sorğusunda yeni siyahı yaranardı.
+Əvvəlki /1 sorğusunun tarixçəsi sonrakı /recent sorğusuna qalmazdı.
+Session scope bir istifadəçinin bir neçə sorğusu arasında vəziyyəti saxlayır.
 ## Hesabat
 
 Birinci bölmənin cavabları və ekran görüntüləri ayrıca [Word hesabatında](docs/Singleton-hesabat.docx) da var. README-dəki cavablar və screenshot-lar tapşırığın təhvil qaydasını saxlayır.
+

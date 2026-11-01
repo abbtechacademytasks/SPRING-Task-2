@@ -1,3 +1,10 @@
 spring:
   application:
     name: testders
+
+server:
+  servlet:
+    session:
+      timeout: 1m
+  tomcat:
+    background-processor-delay: 1s

@@ -2,7 +2,6 @@ package az.iktex.organization.structure.testders.controller;
 
 import az.iktex.organization.structure.testders.dto.request.CreateUserRequest;
 import az.iktex.organization.structure.testders.dto.response.UserInfoResponse;
-import az.iktex.organization.structure.testders.component.RecentlyViewedUsers;
 import az.iktex.organization.structure.testders.component.RequestContext;
 import az.iktex.organization.structure.testders.service.UserInfoService;
 import org.springframework.http.HttpStatus;
@@ -14,14 +13,11 @@ import java.util.List;
 @RequestMapping("/api/v1/user-info")
 public class UserInfoController {
     private final UserInfoService userInfoService;
-    private final RecentlyViewedUsers recentlyViewedUsers;
     private final RequestContext requestContext;
 
     public UserInfoController(UserInfoService userInfoService,
-                              RecentlyViewedUsers recentlyViewedUsers,
                               RequestContext requestContext) {
         this.userInfoService = userInfoService;
-        this.recentlyViewedUsers = recentlyViewedUsers;
         this.requestContext = requestContext;
         System.out.println("UserInfoController yaradildi: " + hashCode());
     }
@@ -30,7 +26,6 @@ public class UserInfoController {
     public UserInfoResponse getUserById(@PathVariable Long id) {
         System.out.println("[Controller] requestId=" + requestContext.getRequestId());
         System.out.println("RequestContext proxy: " + requestContext.getClass().getName());
-        recentlyViewedUsers.addUser(id);
         UserInfoResponse user = userInfoService.getUserById(id);
         System.out.println("Request duration: "
                 + (System.currentTimeMillis() - requestContext.getStartTime()) + " ms");
@@ -49,8 +44,8 @@ public class UserInfoController {
     }
 
     @GetMapping("/recent")
-    public List<Long> getUserIdsRecent() {
-        return recentlyViewedUsers.getUsers();
+    public List<UserInfoResponse> getRecentUsers() {
+        return userInfoService.getRecentUsers();
     }
 
 }
