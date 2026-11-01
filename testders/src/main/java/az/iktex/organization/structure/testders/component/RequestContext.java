@@ -10,5 +10,6 @@ import java.util.UUID;
 @Component
 @RequestScope
 public class RequestContext {
-    private final String traceId = UUID.randomUUID().toString();
+    private final String requestId = UUID.randomUUID().toString().substring(0, 8);
+    private final long startTime = System.currentTimeMillis();
 }

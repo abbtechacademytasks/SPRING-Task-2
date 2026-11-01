@@ -2,6 +2,7 @@ package az.iktex.organization.structure.testders.repository;
 
 import az.iktex.organization.structure.testders.dto.request.CreateUserRequest;
 import az.iktex.organization.structure.testders.dto.response.UserInfoResponse;
+import az.iktex.organization.structure.testders.component.RequestContext;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Repository;
@@ -17,8 +18,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class UserRepository {
     private final Map<Long, UserInfoResponse> users = new ConcurrentHashMap<>();
     private final AtomicLong idGenerator = new AtomicLong();
+    private final RequestContext requestContext;
 
-    public UserRepository() {
+    public UserRepository(RequestContext requestContext) {
+        this.requestContext = requestContext;
         System.out.println("UserRepository yaradildi: " + hashCode());
     }
 
@@ -32,6 +35,7 @@ public class UserRepository {
     }
 
     public UserInfoResponse getUserById(Long id) {
+        System.out.println("[Repository] requestId=" + requestContext.getRequestId());
         UserInfoResponse user = users.get(id);
 
         if (user == null) {

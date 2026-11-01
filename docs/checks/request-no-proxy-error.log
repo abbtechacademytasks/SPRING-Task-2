@@ -1,0 +1,98 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T00:45:33.777+04:00  INFO 10824 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Starting TestdersApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 10824 (C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders\target\testders-0.0.1-SNAPSHOT.jar started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders)
+2026-11-02T00:45:33.780+04:00  INFO 10824 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-11-02T00:45:34.857+04:00  INFO 10824 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-11-02T00:45:34.869+04:00  INFO 10824 --- [testders] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-02T00:45:34.869+04:00  INFO 10824 --- [testders] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-02T00:45:34.900+04:00  INFO 10824 --- [testders] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-02T00:45:34.901+04:00  INFO 10824 --- [testders] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1065 ms
+2026-11-02T00:45:35.018+04:00  WARN 10824 --- [testders] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoController' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/controller/UserInfoController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userInfoService' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/service/UserInfoService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/repository/UserRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'requestContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton
+2026-11-02T00:45:35.020+04:00  INFO 10824 --- [testders] [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-11-02T00:45:35.029+04:00  INFO 10824 --- [testders] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-11-02T00:45:35.044+04:00 ERROR 10824 --- [testders] [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoController' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/controller/UserInfoController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userInfoService' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/service/UserInfoService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/repository/UserRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'requestContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1235) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1201) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:991) ~[spring-context-6.2.19.jar!/:6.2.19]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:628) ~[spring-context-6.2.19.jar!/:6.2.19]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.16.jar!/:3.5.16]
+	at az.iktex.organization.structure.testders.TestdersApplication.main(TestdersApplication.java:10) ~[!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:106) ~[testders-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[testders-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[testders-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userInfoService' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/service/UserInfoService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepository' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/repository/UserRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'requestContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	... 26 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userRepository' defined in URL [jar:nested:/C:/Users/USER/Desktop/ABB%20Tech%20Academy/SPRING-Task-2/testders/target/testders-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/az/iktex/organization/structure/testders/repository/UserRepository.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'requestContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1393) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1230) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	... 39 common frames omitted
+Caused by: org.springframework.beans.factory.support.ScopeNotActiveException: Error creating bean with name 'requestContext': Scope 'request' is not active for the current thread; consider defining a scoped proxy for this bean if you intend to refer to it from a singleton
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:387) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1715) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1660) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	... 52 common frames omitted
+Caused by: java.lang.IllegalStateException: No thread-bound request found: Are you referring to request attributes outside of an actual web request, or processing a request outside of the originally receiving thread? If you are actually operating within a web request and still receive this message, your code is probably running outside of DispatcherServlet: In this case, use RequestContextListener or RequestContextFilter to expose the current request.
+	at org.springframework.web.context.request.RequestContextHolder.currentRequestAttributes(RequestContextHolder.java:131) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.context.request.AbstractRequestAttributesScope.get(AbstractRequestAttributesScope.java:42) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:375) ~[spring-beans-6.2.19.jar!/:6.2.19]
+	... 57 common frames omitted
+

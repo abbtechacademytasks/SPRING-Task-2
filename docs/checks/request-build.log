@@ -1,0 +1,27 @@
+UserAuditLog yaradildi: 2e2bd888-d3df-4b93-adc2-a5b7e5457cfa
+UserAuditLog yaradildi: 19c1d47a-6c68-4bbe-8de3-2925228ee3b2
+01:11:45.947 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.iktex.organization.structure.testders.TestdersApplicationTests]: TestdersApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:11:46.036 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.iktex.organization.structure.testders.TestdersApplication for test class az.iktex.organization.structure.testders.TestdersApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T01:11:46.447+04:00  INFO 45888 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : Starting TestdersApplicationTests using Java 21.0.7 with PID 45888 (started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders)
+2026-11-02T01:11:46.448+04:00  INFO 45888 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+UserRepository yaradildi: 1647509467
+UserRepository hazirdir, 3 user yuklendi
+UserInfoService yaradildi: 716333944
+UserInfoController yaradildi: 262093096
+2026-11-02T01:11:47.538+04:00  INFO 45888 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : Started TestdersApplicationTests in 1.375 seconds (process running for 2.493)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\USER\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release

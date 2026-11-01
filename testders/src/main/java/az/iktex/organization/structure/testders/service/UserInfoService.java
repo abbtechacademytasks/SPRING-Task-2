@@ -26,6 +26,7 @@ public class UserInfoService {
     }
 
     public UserInfoResponse getUserById(Long id) {
+        System.out.println("[Service] requestId=" + requestContext.getRequestId());
         return userRepository.getUserById(id);
     }
 

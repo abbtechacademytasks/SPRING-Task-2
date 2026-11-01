@@ -82,8 +82,6 @@ Singleton bean-i eyni anda bir neçə thread istifadə edə bilər. Dəqiq say s
 
 Adi `HashMap` paralel dəyişikliklər üçün təhlükəsiz deyil. Adi `long` üzərində `++` atomik olmadığından iki thread eyni ID ala bilər. `ConcurrentHashMap` map əməliyyatları üçün, `AtomicLong` isə ID artımı üçün istifadə olunur. Bir neçə əməliyyatdan ibarət ardıcıllıq və `UserInfoResponse` field-lərinin dəyişdirilməsi ayrıca thread-safety tələb edə bilər.
 
-## Hesabat
-
 ## Bölmə 2 Prototype
 
 ### Tapşırıq 9 və 10
@@ -103,6 +101,31 @@ hər createUser çağırışı getObject ilə yeni audit alır və CREATE_USER a
 Prototype bean üçün Spring yaradılma və initialization mərhələlərini idarə edir, amma avtomatik destroy callback saxlamır.
 Context bağlananda UserAuditLog-un PreDestroy log-u çıxmır. Resurs varsa onu istifadə edən kod təmizləməlidir.
 PrototypeLifecycleTest bunu ayrıca yoxlayır.
+
+### Provider yoxlaması
+
+[Üç fərqli auditId log-u](docs/checks/prototype-provider-app.log), [HTTP cavabları](docs/checks/prototype-provider-http.json).
+
+## Bölmə 3 Request
+
+### Tapşırıq 14 və 15
+
+RequestContext request scope-dadır: UUID-dən8simvol requestId və millisecond startTime saxlayır.
+Controller,service,repository konstruktorları eyni scoped proxy-ni qəbul edir.
+
+### Tapşırıq 16 və 17
+
+Bir GET/id zamanı üç qat eyni requestId-ni log-a yazır. Növbəti GET yeni requestId alır.
+Controller cavab qaytarmazdan əvvəl cari vaxtdan startTime çıxıb müddəti millisecond ilə yazır;
+bu, context ilk istifadə olunandan hesablanan vaxtdır, tam şəbəkə round-trip ölçüsü deyil.
+
+### Tapşırıq 18 və 19
+
+RequestScope əvəzinə proxy-siz Scope("request") sınağında startup ScopeNotActiveException verdi:
+singleton yaradılarkən aktiv HTTP request yoxdur. Sonra RequestScope bərpa edildi.
+[Real startup xətası](docs/checks/request-no-proxy-error.log).
+RequestScope default olaraq TARGET_CLASS proxy istifadə edir. getClass çıxışında $$SpringCGLIB$$ görünür.
+Proxy singleton-da qalır,method çağırışını cari HTTP request-in həqiqi obyektinə ötürür.
 
 ## Hesabat
 
