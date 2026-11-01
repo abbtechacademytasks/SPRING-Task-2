@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "fullName": "Direct1",
+    "email": "direct1@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:43:31.6370477"
+  },
+  {
+    "id": 5,
+    "fullName": "Direct2",
+    "email": "direct2@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:43:31.7120795"
+  },
+  {
+    "id": 6,
+    "fullName": "Direct3",
+    "email": "direct3@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:43:31.7181361"
+  }
+]

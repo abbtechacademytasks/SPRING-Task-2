@@ -1,6 +1,6 @@
 # SPRING-Task-2
 
-Spring bean scope-ları və Dependency Injection tapşırığı. Hazırda 1-ci bölmə — singleton repository hazırlanıb və yoxlanıb. Arxivdən götürülən prototype, request və session nümunələri növbəti bölmələrdə tamamlanacaq.
+Spring bean scope-ları və Dependency Injection tapşırığı. Bölmələr üzrə nəticələr aşağıda saxlanılır.
 
 ## İşə salmaq
 
@@ -81,6 +81,28 @@ Başlanğıc `GET /all` üç istifadəçi qaytardı. `POST /create` ilə Vaqif y
 Singleton bean-i eyni anda bir neçə thread istifadə edə bilər. Dəqiq say serverin imkanlarından və gələn sorğulardan asılıdır; scope thread sayını məhdudlaşdırmır. Lokal dəyişənlər və parametrlər hər çağırış üçün ayrıdır, bean-in field-ləri isə ortaqdır. Lokal istinadlar ortaq dəyişən obyektə yönəlsə, həmin obyekt yenə paylaşılır.
 
 Adi `HashMap` paralel dəyişikliklər üçün təhlükəsiz deyil. Adi `long` üzərində `++` atomik olmadığından iki thread eyni ID ala bilər. `ConcurrentHashMap` map əməliyyatları üçün, `AtomicLong` isə ID artımı üçün istifadə olunur. Bir neçə əməliyyatdan ibarət ardıcıllıq və `UserInfoResponse` field-lərinin dəyişdirilməsi ayrıca thread-safety tələb edə bilər.
+
+## Hesabat
+
+## Bölmə 2 Prototype
+
+### Tapşırıq 9 və 10
+
+UserAuditLog prototype bean-dir: auditId UUID, createdAt LocalDateTime, action isə setter ilə təyin olunur.
+Konstruktor hər yaradılmanı və auditId-ni log-a yazır.
+
+### Tapşırıq 11 və 12
+
+Əvvəl UserAuditLog singleton UserInfoService konstruktoruna birbaşa inject edildi. Üç POST/create eyni auditId-ni istifadə etdi:
+Spring asılılığı service yaradılarkən bir dəfə verdi. Sonra ObjectProvider istifadə edildi;
+hər createUser çağırışı getObject ilə yeni audit alır və CREATE_USER action təyin edir.
+[Birbaşa injection log-u](docs/checks/prototype-direct-app.log), [HTTP](docs/checks/prototype-direct-http.json).
+
+### Tapşırıq 13
+
+Prototype bean üçün Spring yaradılma və initialization mərhələlərini idarə edir, amma avtomatik destroy callback saxlamır.
+Context bağlananda UserAuditLog-un PreDestroy log-u çıxmır. Resurs varsa onu istifadə edən kod təmizləməlidir.
+PrototypeLifecycleTest bunu ayrıca yoxlayır.
 
 ## Hesabat
 

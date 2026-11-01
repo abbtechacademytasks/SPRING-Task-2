@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "fullName": "Provider1",
+    "email": "provider1@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:44:55.3564494"
+  },
+  {
+    "id": 5,
+    "fullName": "Provider2",
+    "email": "provider2@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:44:55.4383631"
+  },
+  {
+    "id": 6,
+    "fullName": "Provider3",
+    "email": "provider3@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T00:44:55.4439255"
+  }
+]

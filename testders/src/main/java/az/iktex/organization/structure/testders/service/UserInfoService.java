@@ -26,9 +26,6 @@ public class UserInfoService {
     }
 
     public UserInfoResponse getUserById(Long id) {
-        UserAuditLog userAuditLogProvider = userAuditLog.getObject();
-//        System.out.println("AuditID" + userAuditLogProvider.getAuditId());
-//        System.out.println("TraceID" + requestContext.getTraceId());
         return userRepository.getUserById(id);
     }
 
@@ -37,6 +34,9 @@ public class UserInfoService {
     }
 
     public UserInfoResponse createUser(CreateUserRequest createUserRequest) {
+        UserAuditLog audit = userAuditLog.getObject();
+        audit.setAction("CREATE_USER");
+        System.out.println("Audit: " + audit.getAuditId() + ", action=" + audit.getAction());
         return userRepository.createUser(createUserRequest);
     }
 }

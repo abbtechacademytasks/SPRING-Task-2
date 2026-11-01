@@ -1,6 +1,8 @@
 package az.iktex.organization.structure.testders.component;
 
 import lombok.Getter;
+import lombok.Setter;
+import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -13,4 +15,16 @@ import java.util.UUID;
 public class UserAuditLog {
     private final String auditId = UUID.randomUUID().toString();
     private final LocalDateTime createdAt = LocalDateTime.now();
+
+    @Setter
+    private String action;
+
+    public UserAuditLog() {
+        System.out.println("UserAuditLog yaradildi: " + auditId);
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("UserAuditLog baglandi: " + auditId);
+    }
 }
