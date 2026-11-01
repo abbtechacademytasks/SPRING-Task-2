@@ -1,0 +1,656 @@
+{
+  "info": {
+    "name": "Task17 Bean Scopes and DI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Run against final Task17 JAR with a fresh cookie jar. Default localhost:8082."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082/api/v1/user-info"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Qualifier - two Mock User entries",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/all"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Two Mock Users',()=>{const a=pm.response.json();pm.expect(a.length).to.eql(2);a.forEach(u=>pm.expect(u.fullName).to.eql('Mock User'));});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 New client has empty history",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/recent"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('New session is empty',()=>pm.expect(pm.response.json()).to.eql([]));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create user 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Task17 User 1\", \"email\": \"task17-1@example.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+              "const u=pm.response.json();pm.collectionVariables.set('u1',u.id);pm.collectionVariables.set('body1',JSON.stringify(u));",
+              "pm.test('Created fields',()=>{pm.expect(u.fullName).to.eql('Task17 User 1');pm.expect(u.active).to.eql(true);pm.expect(u.createdAt).to.be.a('string');});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create user 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Task17 User 2\", \"email\": \"task17-2@example.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+              "const u=pm.response.json();pm.collectionVariables.set('u2',u.id);pm.collectionVariables.set('body2',JSON.stringify(u));",
+              "pm.test('Created fields',()=>{pm.expect(u.fullName).to.eql('Task17 User 2');pm.expect(u.active).to.eql(true);pm.expect(u.createdAt).to.be.a('string');});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create user 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Task17 User 3\", \"email\": \"task17-3@example.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+              "const u=pm.response.json();pm.collectionVariables.set('u3',u.id);pm.collectionVariables.set('body3',JSON.stringify(u));",
+              "pm.test('Created fields',()=>{pm.expect(u.fullName).to.eql('Task17 User 3');pm.expect(u.active).to.eql(true);pm.expect(u.createdAt).to.be.a('string');});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create user 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Task17 User 4\", \"email\": \"task17-4@example.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+              "const u=pm.response.json();pm.collectionVariables.set('u4',u.id);pm.collectionVariables.set('body4',JSON.stringify(u));",
+              "pm.test('Created fields',()=>{pm.expect(u.fullName).to.eql('Task17 User 4');pm.expect(u.active).to.eql(true);pm.expect(u.createdAt).to.be.a('string');});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Create user 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Task17 User 5\", \"email\": \"task17-5@example.com\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+              "const u=pm.response.json();pm.collectionVariables.set('u5',u.id);pm.collectionVariables.set('body5',JSON.stringify(u));",
+              "pm.test('Created fields',()=>{pm.expect(u.fullName).to.eql('Task17 User 5');pm.expect(u.active).to.eql(true);pm.expect(u.createdAt).to.be.a('string');});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Visit seed user",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Read created user 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u1}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Created and found user match',()=>pm.expect(pm.response.json()).to.eql(JSON.parse(pm.collectionVariables.get('body1'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Read created user 2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u2}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Created and found user match',()=>pm.expect(pm.response.json()).to.eql(JSON.parse(pm.collectionVariables.get('body2'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Read created user 3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u3}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Created and found user match',()=>pm.expect(pm.response.json()).to.eql(JSON.parse(pm.collectionVariables.get('body3'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Read created user 4",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u4}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Created and found user match',()=>pm.expect(pm.response.json()).to.eql(JSON.parse(pm.collectionVariables.get('body4'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Read created user 5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u5}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Created and found user match',()=>pm.expect(pm.response.json()).to.eql(JSON.parse(pm.collectionVariables.get('body5'))));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "History keeps last five",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/recent"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Five users in order',()=>{",
+              "const a=pm.response.json();pm.expect(a.map(u=>u.id)).to.eql([5,4,3,2,1].map(i=>Number(pm.collectionVariables.get('u'+i))));",
+              "pm.expect(a.length).to.eql(5);a.forEach(u=>pm.expect(u.email).to.be.a('string'));});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Revisit user 3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/{{u3}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "History has no duplicates",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/recent"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Duplicate moves to front without duplication',()=>{",
+              "pm.expect(pm.response.json().map(u=>u.id)).to.eql([3,5,4,2,1].map(i=>Number(pm.collectionVariables.get('u'+i))));});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missing user - expected exception",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/99999"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Unhandled NoSuchElementException gives HTTP 500',()=>pm.response.to.have.status(500));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missing user did not enter history",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/recent"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Duplicate moves to front without duplication',()=>{",
+              "pm.expect(pm.response.json().map(u=>u.id)).to.eql([3,5,4,2,1].map(i=>Number(pm.collectionVariables.get('u'+i))));});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mock list remains fixed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/all"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Fixed two mock entries',()=>pm.expect(pm.response.json().map(u=>u.fullName)).to.eql(['Mock User','Mock User']));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 4",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 5",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 6",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 7",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 8",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 9",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Singleton repeat 10",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

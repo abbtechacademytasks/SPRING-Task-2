@@ -1,0 +1,23 @@
+<!doctype html><html lang="az"><meta charset="utf-8"><title>Dependency Injection: yoxlamaların nəticəsi</title><style>body{margin:0;background:#edf2f7;color:#152438;font:18px Segoe UI,sans-serif}main{max-width:none;margin:20px auto;padding:0 38px}h1{font-size:32px;margin:0 0 10px}header p{color:#42556c;margin:8px 0 16px}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}section{background:white;border:1px solid #cdd8e6;border-radius:12px;padding:16px;overflow:hidden}h2{font-size:24px;margin:0 0 12px}.source{font:14px Consolas,monospace;color:#52657b}pre{font:17px/1.4 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:12px 0}footer{margin:18px 0;color:#52657b;font-size:16px}</style><main><header><h1>Dependency Injection: yoxlamaların nəticəsi</h1><p>Mənfi sınaqların hamısından sonra işlək constructor injection bərpa olunub.</p></header><div class="grid"><section><h2>İki repository: seçim lazımdır</h2><p class="source">docs/checks/di-ambiguous-error.log</p><pre>required a single bean, but 2 were found:
+  - inMemoryUserRepository
+  - mockUserRepository
+
+Tam startup xətası mənbə log-da saxlanılıb.</pre></section><section><h2>Primary → Qualifier</h2><p class="source">di-primary-http.json / di-final-http.json</p><pre>@Primary InMemoryUserRepository:
+/all → Ana, Murad, Ali
+
+@Qualifier(&quot;mockUserRepository&quot;):
+/all → Mock User, Mock User
+
+List&lt;UserRepository&gt; → 2 bean</pre></section><section><h2>Prototype audit və optional notification</h2><p class="source">docs/checks/final-http-app.log</p><pre>Audit: c5bc9ea7-41b5-42a5-94e6-f776288d562c, action=CREATE_USER
+Xoş gəldin: task17-1@example.com
+Audit: 57c8ef7b-084d-4a18-8e8a-822ebbb8af46, action=CREATE_USER
+Xoş gəldin: task17-2@example.com
+Audit: f9a45354-b8bc-4002-a38e-bd9b2a3a0ef6, action=CREATE_USER
+Xoş gəldin: task17-3@example.com
+... tam log-da 5 create / 5 audit / 5 welcome.</pre></section><section><h2>Testlər</h2><p class="source">di-final-build.log / postman-run.json</p><pre>JUnit: 10 test, 0 failure/error
+HTTP sorğuları: 29
+Assertions: 40
+Failures: 0
+
+Field injection mənfi sınağı: repository null → NPE
+Constructor injection bərpa edilib.</pre></section></div><footer>2 noyabr 2026 · Real tətbiq log-larından seçilmiş çıxarışlar. Bu səhifə hesabatdır, terminal və ya Postman ekranı deyil.</footer></main></html>

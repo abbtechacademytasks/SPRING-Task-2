@@ -5,8 +5,11 @@ import az.iktex.organization.structure.testders.dto.response.UserInfoResponse;
 import az.iktex.organization.structure.testders.component.RequestContext;
 import az.iktex.organization.structure.testders.component.RecentlyViewedUsers;
 import az.iktex.organization.structure.testders.component.UserAuditLog;
+import az.iktex.organization.structure.testders.component.NotificationService;
 import az.iktex.organization.structure.testders.repository.UserRepository;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,15 +21,26 @@ public class UserInfoService {
     private final UserRepository userRepository;
     private final RequestContext requestContext;
     private final RecentlyViewedUsers recentlyViewedUsers;
+    private final List<UserRepository> repositories;
+    private NotificationService notificationService;
 
-    public UserInfoService(UserRepository userRepository, ObjectProvider<UserAuditLog> userAuditLog,
-                           RequestContext requestContext, RecentlyViewedUsers recentlyViewedUsers) {
+    public UserInfoService(@Qualifier("mockUserRepository") UserRepository userRepository,
+                           ObjectProvider<UserAuditLog> userAuditLog,
+                           RequestContext requestContext, RecentlyViewedUsers recentlyViewedUsers,
+                           List<UserRepository> repositories) {
         this.userRepository = userRepository;
         this.userAuditLog = userAuditLog;
         this.requestContext = requestContext;
         this.recentlyViewedUsers = recentlyViewedUsers;
+        this.repositories = List.copyOf(repositories);
 
         System.out.println("UserInfoService yaradildi: " + hashCode());
+        System.out.println("Repository sayi: " + this.repositories.size());
+    }
+
+    @Autowired(required = false)
+    public void setNotificationService(NotificationService notificationService) {
+        this.notificationService = notificationService;
     }
 
     public UserInfoResponse getUserById(Long id) {
@@ -50,6 +64,10 @@ public class UserInfoService {
         UserAuditLog audit = userAuditLog.getObject();
         audit.setAction("CREATE_USER");
         System.out.println("Audit: " + audit.getAuditId() + ", action=" + audit.getAction());
-        return userRepository.createUser(createUserRequest);
+        UserInfoResponse user = userRepository.createUser(createUserRequest);
+        if (notificationService != null) {
+            notificationService.sendWelcome(user.getEmail());
+        }
+        return user;
     }
 }

@@ -1,0 +1,50 @@
+UserAuditLog yaradildi: 9efc30a7-20df-47a6-84ba-297274d66747
+UserAuditLog yaradildi: c8f73a13-d7d3-4475-9b02-655c29e72c79
+RecentlyViewedUsers yaradildi: 7a553207-bfa2-4e4e-899e-575220ddaac0
+UserRepository yaradildi: 1100619942
+UserRepository hazirdir, 3 user yuklendi
+UserRepository baglandi, users temizlendi
+01:22:55.740 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.iktex.organization.structure.testders.TestdersApplicationTests]: TestdersApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:22:55.814 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.iktex.organization.structure.testders.TestdersApplication for test class az.iktex.organization.structure.testders.TestdersApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T01:22:56.238+04:00  INFO 49960 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : Starting TestdersApplicationTests using Java 21.0.7 with PID 49960 (started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders)
+2026-11-02T01:22:56.240+04:00  INFO 49960 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+UserRepository yaradildi: 598284487
+UserRepository hazirdir, 3 user yuklendi
+UserInfoService yaradildi: 1454922150
+Repository sayi: 2
+UserInfoController yaradildi: 917131986
+2026-11-02T01:22:57.283+04:00  INFO 49960 --- [testders] [           main] a.i.o.s.t.TestdersApplicationTests       : Started TestdersApplicationTests in 1.346 seconds (process running for 2.623)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\USER\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+UserInfoService yaradildi: 1947725647
+Repository sayi: 1
+[Service] requestId=test-id
+UserInfoService yaradildi: 1252749717
+Repository sayi: 1
+UserAuditLog yaradildi: 550006b2-0d36-45be-bfc3-53381da378ec
+Audit: 550006b2-0d36-45be-bfc3-53381da378ec, action=CREATE_USER
+UserInfoService yaradildi: 382522044
+Repository sayi: 1
+UserInfoService yaradildi: 800360816
+Repository sayi: 1
+UserInfoService yaradildi: 423765194
+Repository sayi: 1
+[Service] requestId=test-id
+UserInfoService yaradildi: 49913228
+Repository sayi: 1
+UserAuditLog yaradildi: acf39ead-5bcf-420b-be10-e6a29db16ac9
+Audit: acf39ead-5bcf-420b-be10-e6a29db16ac9, action=CREATE_USER

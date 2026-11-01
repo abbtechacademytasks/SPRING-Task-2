@@ -1,0 +1,154 @@
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman
+
+Task17 Bean Scopes and DI
+
+→ 01 Qualifier - two Mock User entries
+  GET http://localhost:8082/api/v1/user-info/all [200 OK, 397B, 146ms]
+  √  HTTP 200
+  √  Two Mock Users
+
+→ 02 New client has empty history
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 241B, 25ms]
+  √  New session is empty
+
+→ Create user 1
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 48ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 2
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 11ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 3
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 6ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 4
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 6ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 5
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 6ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Visit seed user
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 9ms]
+  √  HTTP 200
+
+→ Read created user 1
+  GET http://localhost:8082/api/v1/user-info/3 [200 OK, 286B, 6ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 2
+  GET http://localhost:8082/api/v1/user-info/4 [200 OK, 286B, 6ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 3
+  GET http://localhost:8082/api/v1/user-info/5 [200 OK, 286B, 5ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 4
+  GET http://localhost:8082/api/v1/user-info/6 [200 OK, 286B, 4ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 5
+  GET http://localhost:8082/api/v1/user-info/7 [200 OK, 286B, 6ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ History keeps last five
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 5ms]
+  √  Five users in order
+
+→ Revisit user 3
+  GET http://localhost:8082/api/v1/user-info/5 [200 OK, 286B, 5ms]
+  √  HTTP 200
+
+→ History has no duplicates
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 5ms]
+  √  Duplicate moves to front without duplication
+
+→ Missing user - expected exception
+  GET http://localhost:8082/api/v1/user-info/99999 [500 Internal Server Error, 277B, 25ms]
+  √  Unhandled NoSuchElementException gives HTTP 500
+
+→ Missing user did not enter history
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 6ms]
+  √  Duplicate moves to front without duplication
+
+→ Mock list remains fixed
+  GET http://localhost:8082/api/v1/user-info/all [200 OK, 397B, 3ms]
+  √  Fixed two mock entries
+
+→ Singleton repeat 1
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 2
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 6ms]
+  √  HTTP 200
+
+→ Singleton repeat 3
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 4
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 5
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 6
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 7
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 8
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 9
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 3ms]
+  √  HTTP 200
+
+→ Singleton repeat 10
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                29 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                29 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 0 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                40 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 2.7s                                       │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 5.05kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 13ms [min: 3ms, max: 146ms, s.d.: 26ms] │
+└────────────────────────────────────────────────────────────────┘

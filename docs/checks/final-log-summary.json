@@ -1,0 +1,9 @@
+{
+  "controllerConstructors": 1,
+  "serviceConstructors": 1,
+  "memoryRepositoryConstructors": 1,
+  "createAudits": 5,
+  "uniqueAuditIds": 5,
+  "welcomes": 5,
+  "repositoryList": 2
+}

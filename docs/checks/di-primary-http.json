@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Ana",
+      "email": "ana@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:21:45.330139"
+    },
+    {
+      "id": 2,
+      "fullName": "Murad",
+      "email": "murad@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:21:45.330139"
+    },
+    {
+      "id": 3,
+      "fullName": "Ali",
+      "email": "ali@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:21:45.330139"
+    }
+  ],
+  "selection": "@Primary InMemoryUserRepository",
+  "withoutNotification": {
+    "id": 4,
+    "fullName": "Optional check",
+    "email": "optional@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T01:22:20.1976827"
+  }
+}

@@ -1,0 +1,102 @@
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\USER\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+UserInfoService yaradildi: 1502882632
+Repository sayi: 1
+[Service] requestId=test-id
+UserInfoService yaradildi: 809520570
+Repository sayi: 1
+UserAuditLog yaradildi: e4b22e5b-70f2-49c6-b400-28494263dda7
+Audit: e4b22e5b-70f2-49c6-b400-28494263dda7, action=CREATE_USER
+UserInfoService yaradildi: 1220813917
+Repository sayi: 1
+UserInfoService yaradildi: 1871580398
+Repository sayi: 1
+UserInfoService yaradildi: 1455064947
+Repository sayi: 1
+[Service] requestId=test-id
+UserInfoService yaradildi: 2078154554
+Repository sayi: 1
+UserAuditLog yaradildi: 90347a22-8700-4c3d-b843-fe3e1d1ea026
+Audit: 90347a22-8700-4c3d-b843-fe3e1d1ea026, action=CREATE_USER
+[ERROR] Tests run: 6, Failures: 1, Errors: 5, Skipped: 0, Time elapsed: 1.379 s <<< FAILURE! -- in az.iktex.organization.structure.testders.UserInfoServiceTest
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.successfulLookupUpdatesHistory -- Time elapsed: 1.267 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.getUserById(java.lang.Long)" because "this.userRepository" is null
+	at az.iktex.organization.structure.testders.service.UserInfoService.getUserById(UserInfoService.java:48)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.successfulLookupUpdatesHistory(UserInfoServiceTest.java:77)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.sendsWelcomeToCreatedUser -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.createUser(az.iktex.organization.structure.testders.dto.request.CreateUserRequest)" because "this.userRepository" is null
+	at az.iktex.organization.structure.testders.service.UserInfoService.createUser(UserInfoService.java:67)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.sendsWelcomeToCreatedUser(UserInfoServiceTest.java:61)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.recentReturnsFullUsersInSessionOrder -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
+	at az.iktex.organization.structure.testders.service.UserInfoService.getRecentUsers(UserInfoService.java:55)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.recentReturnsFullUsersInSessionOrder(UserInfoServiceTest.java:90)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.allUsersComeFromInjectedRepository -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.getAllUsers()" because "this.userRepository" is null
+	at az.iktex.organization.structure.testders.service.UserInfoService.getAllUsers(UserInfoService.java:60)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.allUsersComeFromInjectedRepository(UserInfoServiceTest.java:98)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.missingUserIsNotAddedToHistory -- Time elapsed: 0.024 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.util.NoSuchElementException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.missingUserIsNotAddedToHistory(UserInfoServiceTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.getUserById(java.lang.Long)" because "this.userRepository" is null
+	at az.iktex.organization.structure.testders.service.UserInfoService.getUserById(UserInfoService.java:48)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.lambda$missingUserIsNotAddedToHistory$0(UserInfoServiceTest.java:69)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 6 more
+
+[ERROR] az.iktex.organization.structure.testders.UserInfoServiceTest.createWorksWithoutNotificationAndSetsAuditAction -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.createUser(az.iktex.organization.structure.testders.dto.request.CreateUserRequest)" because "this.userRepository" is null
+	at az.iktex.organization.structure.testders.service.UserInfoService.createUser(UserInfoService.java:67)
+	at az.iktex.organization.structure.testders.UserInfoServiceTest.createWorksWithoutNotificationAndSetsAuditAction(UserInfoServiceTest.java:46)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] Failures: 
+[ERROR]   UserInfoServiceTest.missingUserIsNotAddedToHistory:69 Unexpected exception type thrown, expected: <java.util.NoSuchElementException> but was: <java.lang.NullPointerException>
+[ERROR] Errors: 
+[ERROR]   UserInfoServiceTest.allUsersComeFromInjectedRepository:98 » NullPointer Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.getAllUsers()" because "this.userRepository" is null
+[ERROR]   UserInfoServiceTest.createWorksWithoutNotificationAndSetsAuditAction:46 » NullPointer Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.createUser(az.iktex.organization.structure.testders.dto.request.CreateUserRequest)" because "this.userRepository" is null
+[ERROR]   UserInfoServiceTest.recentReturnsFullUsersInSessionOrder:90 » NullPointer
+[ERROR]   UserInfoServiceTest.sendsWelcomeToCreatedUser:61 » NullPointer Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.createUser(az.iktex.organization.structure.testders.dto.request.CreateUserRequest)" because "this.userRepository" is null
+[ERROR]   UserInfoServiceTest.successfulLookupUpdatesHistory:77 » NullPointer Cannot invoke "az.iktex.organization.structure.testders.repository.UserRepository.getUserById(java.lang.Long)" because "this.userRepository" is null
+[ERROR] Tests run: 6, Failures: 1, Errors: 5, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project testders: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

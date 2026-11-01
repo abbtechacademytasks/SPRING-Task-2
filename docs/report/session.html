@@ -1,0 +1,13 @@
+<!doctype html><html lang="az"><meta charset="utf-8"><title>Session: tarixçə və avtomatik timeout</title><style>body{margin:0;background:#edf2f7;color:#152438;font:18px Segoe UI,sans-serif}main{max-width:none;margin:20px auto;padding:0 38px}h1{font-size:32px;margin:0 0 10px}header p{color:#42556c;margin:8px 0 16px}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}section{background:white;border:1px solid #cdd8e6;border-radius:12px;padding:16px;overflow:hidden}h2{font-size:24px;margin:0 0 12px}.source{font:14px Consolas,monospace;color:#52657b}pre{font:17px/1.4 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:12px 0}footer{margin:18px 0;color:#52657b;font-size:16px}</style><main><header><h1>Session: tarixçə və avtomatik timeout</h1><p>Ayrı cookie jars ayrı tarixçəyə malikdir. ID siyahısı DTO-lara çevrilir.</p></header><div class="grid"><section><h2>Cookie jar A və B</h2><p class="source">docs/checks/session-http.json</p><pre>A: /1 → /3 → /2 → /1
+/recent IDs: [1, 2, 3]
+B: /recent → []</pre></section><section><h2>Beş fərqli istifadəçi</h2><p class="source">docs/checks/session-http.json</p><pre>Son beş: [7, 6, 5, 4, 3]
+Təkrar 5-dən sonra: [5, 7, 6, 4, 3]</pre></section><section><h2>Avtomatik PreDestroy</h2><p class="source">docs/checks/session-expiry.json</p><pre>{
+  &quot;note&quot;: &quot;No request was sent to the idle probe session before automatic destruction.&quot;,
+  &quot;checked&quot;: &quot;2026-11-02T01:20:37.8604922+04:00&quot;,
+  &quot;line&quot;: &quot;RecentlyViewedUsers baglandi: f646b66b-c313-41b4-b9d2-46727679eb89&quot;,
+  &quot;started&quot;: &quot;2026-11-02T01:16:04.6407625+04:00&quot;,
+  &quot;destroyed&quot;: true
+}</pre></section><section><h2>Session lifecycle</h2><p class="source">application.yaml</p><pre>server.servlet.session.timeout: 1m
+server.tomcat.background-processor-delay: 1s
+
+Timeout fəaliyyətsizlikdən hesablanır. Tomcat növbəti expiry yoxlamasında callback çağırır.</pre></section></div><footer>2 noyabr 2026 · Real tətbiq log-larından seçilmiş çıxarışlar. Bu səhifə hesabatdır, terminal və ya Postman ekranı deyil.</footer></main></html>

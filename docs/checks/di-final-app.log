@@ -1,0 +1,67 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T01:23:01.877+04:00  INFO 50076 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Starting TestdersApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 50076 (C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders\target\testders-0.0.1-SNAPSHOT.jar started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders)
+2026-11-02T01:23:01.881+04:00  INFO 50076 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-11-02T01:23:02.973+04:00  INFO 50076 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-11-02T01:23:02.996+04:00  INFO 50076 --- [testders] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-02T01:23:02.996+04:00  INFO 50076 --- [testders] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-02T01:23:03.024+04:00  INFO 50076 --- [testders] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-02T01:23:03.024+04:00  INFO 50076 --- [testders] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1095 ms
+UserRepository yaradildi: 2045143855
+UserRepository hazirdir, 3 user yuklendi
+UserInfoService yaradildi: 1440057381
+Repository sayi: 2
+UserInfoController yaradildi: 697240075
+2026-11-02T01:23:03.425+04:00  INFO 50076 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2026-11-02T01:23:03.454+04:00  INFO 50076 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Started TestdersApplication in 2.122 seconds (process running for 2.7)
+2026-11-02T01:23:24.344+04:00  INFO 50076 --- [testders] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-02T01:23:24.345+04:00  INFO 50076 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-02T01:23:24.346+04:00  INFO 50076 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[Controller] requestId=5fecbb5d
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=5fecbb5d
+[Repository] requestId=5fecbb5d
+RecentlyViewedUsers yaradildi: 9cdddf48-11c4-429b-9be1-c8122d76c9d4
+Request duration: 16 ms
+UserAuditLog yaradildi: 88d41182-8c44-4bc3-89ca-83aede10ea8d
+Audit: 88d41182-8c44-4bc3-89ca-83aede10ea8d, action=CREATE_USER
+Xo? g?ldin: vaqif@example.com
+[Controller] requestId=bffc999a
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=bffc999a
+[Repository] requestId=bffc999a
+RecentlyViewedUsers yaradildi: 1e438626-2d9b-4f7f-9c7a-412fcc96b228
+Request duration: 3 ms
+[Controller] requestId=87c568e5
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=87c568e5
+[Repository] requestId=87c568e5
+Request duration: 1 ms
+[Controller] requestId=d8063319
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=d8063319
+[Repository] requestId=d8063319
+Request duration: 1 ms
+[Controller] requestId=4e80cd96
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=4e80cd96
+[Repository] requestId=4e80cd96
+Request duration: 3 ms
+[Controller] requestId=ea98790b
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=ea98790b
+[Repository] requestId=ea98790b
+Request duration: 2 ms
+[Repository] requestId=18ef97ee
+[Repository] requestId=18ef97ee
+[Repository] requestId=18ef97ee
+RecentlyViewedUsers baglandi: 1e438626-2d9b-4f7f-9c7a-412fcc96b228
+RecentlyViewedUsers baglandi: 9cdddf48-11c4-429b-9be1-c8122d76c9d4

@@ -1,0 +1,14 @@
+<!doctype html><html lang="az"><meta charset="utf-8"><title>Prototype: birbaşa injection və ObjectProvider</title><style>body{margin:0;background:#edf2f7;color:#152438;font:18px Segoe UI,sans-serif}main{max-width:none;margin:20px auto;padding:0 38px}h1{font-size:32px;margin:0 0 10px}header p{color:#42556c;margin:8px 0 16px}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}section{background:white;border:1px solid #cdd8e6;border-radius:12px;padding:16px;overflow:hidden}h2{font-size:24px;margin:0 0 12px}.source{font:14px Consolas,monospace;color:#52657b}pre{font:17px/1.4 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:12px 0}footer{margin:18px 0;color:#52657b;font-size:16px}</style><main><header><h1>Prototype: birbaşa injection və ObjectProvider</h1><p>Eyni üç create sorğusu, fərqli bean əldə etmə üsulu.</p></header><div class="grid"><section><h2>Birbaşa injection: 1 auditId</h2><p class="source">docs/checks/prototype-direct-app.log</p><pre>UserAuditLog yaradildi: ec995b0e-cf8a-49ff-b354-cf642b9443dc
+Audit: ec995b0e-cf8a-49ff-b354-cf642b9443dc, action=CREATE_USER
+Audit: ec995b0e-cf8a-49ff-b354-cf642b9443dc, action=CREATE_USER
+Audit: ec995b0e-cf8a-49ff-b354-cf642b9443dc, action=CREATE_USER</pre></section><section><h2>ObjectProvider: 3 auditId</h2><p class="source">docs/checks/prototype-provider-app.log</p><pre>UserAuditLog yaradildi: 98f748a9-5f17-4966-9f7d-e022f03cae76
+Audit: 98f748a9-5f17-4966-9f7d-e022f03cae76, action=CREATE_USER
+UserAuditLog yaradildi: d3094691-2376-4feb-aee7-c1a2aa78b028
+Audit: d3094691-2376-4feb-aee7-c1a2aa78b028, action=CREATE_USER
+UserAuditLog yaradildi: 90ec3789-e049-4f69-9fc8-4faec1dcb326
+Audit: 90ec3789-e049-4f69-9fc8-4faec1dcb326, action=CREATE_USER</pre></section><section><h2>Nəticə</h2><p class="source">prototype-*-summary.txt</p><pre>Actions=3; unique auditIds=1
+
+Actions=3; unique auditIds=3; prototype destroy lifecycle test passed
+</pre></section><section><h2>Lifecycle</h2><p class="source">PrototypeLifecycleTest.java</p><pre>context.getBean() iki dəfə → fərqli obyektlər.
+context.close() → prototype PreDestroy çağırılmır.
+JUnit: 1 test, 0 failure/error.</pre></section></div><footer>2 noyabr 2026 · Real tətbiq log-larından seçilmiş çıxarışlar. Bu səhifə hesabatdır, terminal və ya Postman ekranı deyil.</footer></main></html>
