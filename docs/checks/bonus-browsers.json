@@ -1,0 +1,5 @@
+{
+  "chrome": "{\"getUserByIdCalls\":21,\"createdUsers\":7}",
+  "inAppBrowser": "{\"getUserByIdCalls\":21,\"createdUsers\":7}",
+  "same": true
+}

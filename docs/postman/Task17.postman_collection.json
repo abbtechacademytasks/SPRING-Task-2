@@ -8,6 +8,10 @@
     {
       "key": "baseUrl",
       "value": "http://localhost:8082/api/v1/user-info"
+    },
+    {
+      "key": "bonusUrl",
+      "value": "http://localhost:8082/api/v1"
     }
   ],
   "item": [
@@ -649,6 +653,198 @@
               "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
             ]
           }
+        }
+      ]
+    },
+    {
+      "name": "Bonus 34-37",
+      "item": [
+        {
+          "name": "Scope demo 1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{bonusUrl}}/scope-demo"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+                  "const s=pm.response.json();",
+                  "if (1===1) {pm.collectionVariables.set('scopeHash',s.singletonHashCode);pm.collectionVariables.set('scopeRequests','[]');pm.collectionVariables.set('scopeAudits','[]');}",
+                  "const requests=JSON.parse(pm.collectionVariables.get('scopeRequests'));",
+                  "const audits=JSON.parse(pm.collectionVariables.get('scopeAudits'));",
+                  "pm.test('Same singleton, new request and two fresh prototypes',()=>{",
+                  "pm.expect(s.singletonHashCode).to.eql(Number(pm.collectionVariables.get('scopeHash')));",
+                  "pm.expect(s.firstAuditId).not.to.eql(s.secondAuditId);",
+                  "pm.expect(requests).not.to.include(s.requestId);",
+                  "pm.expect(audits).not.to.include(s.firstAuditId);pm.expect(audits).not.to.include(s.secondAuditId);",
+                  "});",
+                  "requests.push(s.requestId);audits.push(s.firstAuditId,s.secondAuditId);",
+                  "pm.collectionVariables.set('scopeRequests',JSON.stringify(requests));pm.collectionVariables.set('scopeAudits',JSON.stringify(audits));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Scope demo 2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{bonusUrl}}/scope-demo"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+                  "const s=pm.response.json();",
+                  "if (2===1) {pm.collectionVariables.set('scopeHash',s.singletonHashCode);pm.collectionVariables.set('scopeRequests','[]');pm.collectionVariables.set('scopeAudits','[]');}",
+                  "const requests=JSON.parse(pm.collectionVariables.get('scopeRequests'));",
+                  "const audits=JSON.parse(pm.collectionVariables.get('scopeAudits'));",
+                  "pm.test('Same singleton, new request and two fresh prototypes',()=>{",
+                  "pm.expect(s.singletonHashCode).to.eql(Number(pm.collectionVariables.get('scopeHash')));",
+                  "pm.expect(s.firstAuditId).not.to.eql(s.secondAuditId);",
+                  "pm.expect(requests).not.to.include(s.requestId);",
+                  "pm.expect(audits).not.to.include(s.firstAuditId);pm.expect(audits).not.to.include(s.secondAuditId);",
+                  "});",
+                  "requests.push(s.requestId);audits.push(s.firstAuditId,s.secondAuditId);",
+                  "pm.collectionVariables.set('scopeRequests',JSON.stringify(requests));pm.collectionVariables.set('scopeAudits',JSON.stringify(audits));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Scope demo 3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{bonusUrl}}/scope-demo"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+                  "const s=pm.response.json();",
+                  "if (3===1) {pm.collectionVariables.set('scopeHash',s.singletonHashCode);pm.collectionVariables.set('scopeRequests','[]');pm.collectionVariables.set('scopeAudits','[]');}",
+                  "const requests=JSON.parse(pm.collectionVariables.get('scopeRequests'));",
+                  "const audits=JSON.parse(pm.collectionVariables.get('scopeAudits'));",
+                  "pm.test('Same singleton, new request and two fresh prototypes',()=>{",
+                  "pm.expect(s.singletonHashCode).to.eql(Number(pm.collectionVariables.get('scopeHash')));",
+                  "pm.expect(s.firstAuditId).not.to.eql(s.secondAuditId);",
+                  "pm.expect(requests).not.to.include(s.requestId);",
+                  "pm.expect(audits).not.to.include(s.firstAuditId);pm.expect(audits).not.to.include(s.secondAuditId);",
+                  "});",
+                  "requests.push(s.requestId);audits.push(s.firstAuditId,s.secondAuditId);",
+                  "pm.collectionVariables.set('scopeRequests',JSON.stringify(requests));pm.collectionVariables.set('scopeAudits',JSON.stringify(audits));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Statistics baseline",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{bonusUrl}}/stats"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+                  "pm.collectionVariables.set('statsBefore',JSON.stringify(pm.response.json()));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create counted user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/create",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"fullName\": \"Statistics user\", \"email\": \"stats@example.com\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
+                  "pm.collectionVariables.set('statsUserId',pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Read counted user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/{{statsUserId}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200',()=>pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Statistics after creation and read",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{bonusUrl}}/stats"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const before=JSON.parse(pm.collectionVariables.get('statsBefore'));const after=pm.response.json();",
+                  "pm.test('Successful creation counted',()=>pm.expect(after.createdUsers).to.eql(before.createdUsers+1));",
+                  "pm.test('Lookup counted',()=>pm.expect(after.getUserByIdCalls).to.eql(before.getUserByIdCalls+1));"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

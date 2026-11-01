@@ -1,0 +1,358 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-02T01:42:31.319+04:00  INFO 40816 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Starting TestdersApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 40816 (C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders\target\testders-0.0.1-SNAPSHOT.jar started by USER in C:\Users\USER\Desktop\ABB Tech Academy\SPRING-Task-2\testders)
+2026-11-02T01:42:31.321+04:00  INFO 40816 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-11-02T01:42:32.522+04:00  INFO 40816 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-11-02T01:42:32.534+04:00  INFO 40816 --- [testders] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-02T01:42:32.534+04:00  INFO 40816 --- [testders] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-02T01:42:32.565+04:00  INFO 40816 --- [testders] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-02T01:42:32.566+04:00  INFO 40816 --- [testders] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1191 ms
+[Bean before] testdersApplication
+[Bean after] testdersApplication
+[Bean before] consoleNotificationService
+[Bean after] consoleNotificationService
+[Bean after] requestContext
+[Bean before] mockUserRepository
+[Bean after] mockUserRepository
+[Bean after] recentlyViewedUsers
+[Bean after] userStatistics
+UserInfoService yaradildi: 859985937
+Repository sayi: 1
+[Bean before] userInfoService
+[Bean after] userInfoService
+[Bean before] scopeDemoController
+[Bean after] scopeDemoController
+UserInfoController yaradildi: 856047451
+[Bean before] userInfoController
+[Bean after] userInfoController
+2026-11-02T01:42:33.002+04:00  INFO 40816 --- [testders] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2026-11-02T01:42:33.019+04:00  INFO 40816 --- [testders] [           main] a.i.o.s.testders.TestdersApplication     : Started TestdersApplication in 2.267 seconds (process running for 2.71)
+2026-11-02T01:42:59.986+04:00  INFO 40816 --- [testders] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-02T01:42:59.987+04:00  INFO 40816 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-02T01:42:59.988+04:00  INFO 40816 --- [testders] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[Bean before] scopedTarget.userStatistics
+[Bean after] scopedTarget.userStatistics
+UserAuditLog yaradildi: a182a047-0954-4474-b003-c05c1723525d
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: fb2e376a-f406-4a09-9f27-7017b6e31198
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: cc67333b-2b0b-4a60-ad88-58236ff270ef
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: ab1cf847-dda4-40d3-9b01-5be87c7f3819
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: 834e2b3d-5fcb-4074-8060-59d0c4427014
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: ecb66184-89cf-4523-82e1-901eee3065ad
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: 6e77fc16-1cd7-4bd0-a02b-66056415cde4
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 6e77fc16-1cd7-4bd0-a02b-66056415cde4, action=CREATE_USER
+Xoş gəldin: bonus@example.com
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=3ca23603
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=3ca23603
+[Repository] requestId=3ca23603
+RecentlyViewedUsers yaradildi: ff7425ae-98d1-4e96-ba56-7e8de2aa9a61
+[Bean before] scopedTarget.recentlyViewedUsers
+[Bean after] scopedTarget.recentlyViewedUsers
+Request duration: 18 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=290ebfd8
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=290ebfd8
+[Repository] requestId=290ebfd8
+RecentlyViewedUsers yaradildi: c7e75aa4-aa3d-4d3b-be2b-324b8e97be88
+[Bean before] scopedTarget.recentlyViewedUsers
+[Bean after] scopedTarget.recentlyViewedUsers
+Request duration: 3 ms
+RecentlyViewedUsers yaradildi: e55e8613-d88e-492b-87bf-b5b07ea4cd46
+[Bean before] scopedTarget.recentlyViewedUsers
+[Bean after] scopedTarget.recentlyViewedUsers
+UserAuditLog yaradildi: 87f750a0-6cc2-48b2-ba90-0d9b79cb684b
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 87f750a0-6cc2-48b2-ba90-0d9b79cb684b, action=CREATE_USER
+Xoş gəldin: task17-1@example.com
+UserAuditLog yaradildi: 2d90956f-2642-4d99-adc8-c76c5c7d1933
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 2d90956f-2642-4d99-adc8-c76c5c7d1933, action=CREATE_USER
+Xoş gəldin: task17-2@example.com
+UserAuditLog yaradildi: 31e9e592-3069-4b44-97ba-13fbb2e47a6e
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 31e9e592-3069-4b44-97ba-13fbb2e47a6e, action=CREATE_USER
+Xoş gəldin: task17-3@example.com
+UserAuditLog yaradildi: da99e849-9358-45a4-a1d3-45a14b90196a
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: da99e849-9358-45a4-a1d3-45a14b90196a, action=CREATE_USER
+Xoş gəldin: task17-4@example.com
+UserAuditLog yaradildi: 02065e58-7cfe-436f-8e1a-e26e5ab619bc
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 02065e58-7cfe-436f-8e1a-e26e5ab619bc, action=CREATE_USER
+Xoş gəldin: task17-5@example.com
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=691f5736
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=691f5736
+[Repository] requestId=691f5736
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=9cb12fd0
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=9cb12fd0
+[Repository] requestId=9cb12fd0
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=3baf8483
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=3baf8483
+[Repository] requestId=3baf8483
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=8d5d227f
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=8d5d227f
+[Repository] requestId=8d5d227f
+Request duration: 1 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=629d9050
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=629d9050
+[Repository] requestId=629d9050
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=8f6216f4
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=8f6216f4
+[Repository] requestId=8f6216f4
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Repository] requestId=3b3b30ed
+[Repository] requestId=3b3b30ed
+[Repository] requestId=3b3b30ed
+[Repository] requestId=3b3b30ed
+[Repository] requestId=3b3b30ed
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=bc6155be
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=bc6155be
+[Repository] requestId=bc6155be
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Repository] requestId=fa561116
+[Repository] requestId=fa561116
+[Repository] requestId=fa561116
+[Repository] requestId=fa561116
+[Repository] requestId=fa561116
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=169429b7
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=169429b7
+[Repository] requestId=169429b7
+2026-11-02T01:43:39.339+04:00 ERROR 40816 --- [testders] [nio-8082-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.util.NoSuchElementException: User tapilmadi: 99999] with root cause
+
+java.util.NoSuchElementException: User tapilmadi: 99999
+	at az.iktex.organization.structure.testders.component.MockUserRepository.getUserById(MockUserRepository.java:39) ~[!/:0.0.1-SNAPSHOT]
+	at az.iktex.organization.structure.testders.service.UserInfoService.getUserById(UserInfoService.java:51) ~[!/:0.0.1-SNAPSHOT]
+	at az.iktex.organization.structure.testders.controller.UserInfoController.getUserById(UserInfoController.java:29) ~[!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.19.jar!/:6.2.19]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.19.jar!/:6.2.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1797) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.55.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Repository] requestId=6ac7f256
+[Repository] requestId=6ac7f256
+[Repository] requestId=6ac7f256
+[Repository] requestId=6ac7f256
+[Repository] requestId=6ac7f256
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=246d8435
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=246d8435
+[Repository] requestId=246d8435
+Request duration: 1 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=c0ee3c06
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=c0ee3c06
+[Repository] requestId=c0ee3c06
+Request duration: 1 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=a113c430
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=a113c430
+[Repository] requestId=a113c430
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=a9a7f0d3
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=a9a7f0d3
+[Repository] requestId=a9a7f0d3
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=c57241c5
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=c57241c5
+[Repository] requestId=c57241c5
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=7eb835f5
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=7eb835f5
+[Repository] requestId=7eb835f5
+Request duration: 1 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=196e390a
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=196e390a
+[Repository] requestId=196e390a
+Request duration: 1 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=c6c62eaf
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=c6c62eaf
+[Repository] requestId=c6c62eaf
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=d1d87b73
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=d1d87b73
+[Repository] requestId=d1d87b73
+Request duration: 2 ms
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=0c036c2c
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=0c036c2c
+[Repository] requestId=0c036c2c
+Request duration: 2 ms
+UserAuditLog yaradildi: 634cab3e-9f70-4548-9ab0-a0161eb672b9
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: 4ba4f852-a74a-4ade-8267-972e454eeb26
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: 0e45c12d-550f-4749-aab5-8a7e86cb8ad0
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: 7e8c9cfa-3d9d-47fa-95dd-979280ad1710
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: d320485f-6b6a-4de4-bdb3-dc1a152059ed
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+UserAuditLog yaradildi: 97cfec78-6ae6-4514-89a7-076f942c7592
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+UserAuditLog yaradildi: 1e816c43-9205-4100-bc02-afc5de61998e
+[Bean before] userAuditLog
+[Bean after] userAuditLog
+Audit: 1e816c43-9205-4100-bc02-afc5de61998e, action=CREATE_USER
+Xoş gəldin: stats@example.com
+[Bean before] scopedTarget.requestContext
+[Bean after] scopedTarget.requestContext
+[Controller] requestId=b6281d96
+RequestContext proxy: az.iktex.organization.structure.testders.component.RequestContext$$SpringCGLIB$$0
+[Service] requestId=b6281d96
+[Repository] requestId=b6281d96
+Request duration: 2 ms
+RecentlyViewedUsers baglandi: ff7425ae-98d1-4e96-ba56-7e8de2aa9a61
+RecentlyViewedUsers baglandi: c7e75aa4-aa3d-4d3b-be2b-324b8e97be88

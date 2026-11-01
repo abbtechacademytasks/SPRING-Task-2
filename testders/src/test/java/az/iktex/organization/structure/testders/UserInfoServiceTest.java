@@ -4,6 +4,7 @@ import az.iktex.organization.structure.testders.component.NotificationService;
 import az.iktex.organization.structure.testders.component.RecentlyViewedUsers;
 import az.iktex.organization.structure.testders.component.RequestContext;
 import az.iktex.organization.structure.testders.component.UserAuditLog;
+import az.iktex.organization.structure.testders.component.UserStatistics;
 import az.iktex.organization.structure.testders.dto.request.CreateUserRequest;
 import az.iktex.organization.structure.testders.dto.response.UserInfoResponse;
 import az.iktex.organization.structure.testders.repository.UserRepository;
@@ -23,6 +24,7 @@ class UserInfoServiceTest {
     private ObjectProvider<UserAuditLog> provider;
     private RecentlyViewedUsers recent;
     private UserInfoService service;
+    private UserStatistics statistics;
 
     @BeforeEach
     @SuppressWarnings("unchecked")
@@ -32,7 +34,8 @@ class UserInfoServiceTest {
         recent = mock(RecentlyViewedUsers.class);
         RequestContext context = mock(RequestContext.class);
         when(context.getRequestId()).thenReturn("test-id");
-        service = new UserInfoService(repository, provider, context, recent, List.of(repository));
+        statistics = new UserStatistics();
+        service = new UserInfoService(repository, provider, context, recent, List.of(repository), statistics);
     }
 
     @Test
@@ -45,6 +48,7 @@ class UserInfoServiceTest {
 
         assertSame(user, service.createUser(request));
         assertEquals("CREATE_USER", audit.getAction());
+        assertEquals(1L, statistics.getStatistics().get("createdUsers"));
         verify(repository).createUser(request);
     }
 
@@ -68,6 +72,7 @@ class UserInfoServiceTest {
         when(repository.getUserById(99L)).thenThrow(new NoSuchElementException());
         assertThrows(NoSuchElementException.class, () -> service.getUserById(99L));
         verifyNoInteractions(recent);
+        assertEquals(1L, statistics.getStatistics().get("getUserByIdCalls"));
     }
 
     @Test
@@ -89,6 +94,7 @@ class UserInfoServiceTest {
         when(repository.getUserById(1L)).thenReturn(second);
         assertEquals(List.of(first, second), service.getRecentUsers());
         verify(recent, never()).addUser(anyLong());
+        assertEquals(0L, statistics.getStatistics().get("getUserByIdCalls"));
     }
 
     @Test

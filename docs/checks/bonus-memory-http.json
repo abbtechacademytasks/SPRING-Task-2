@@ -1,0 +1,36 @@
+{
+  "conditionalMockAbsent": true,
+  "initialUsers": [
+    {
+      "id": 1,
+      "fullName": "Ana",
+      "email": "ana@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:44:34.0675404"
+    },
+    {
+      "id": 2,
+      "fullName": "Murad",
+      "email": "murad@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:44:34.0685457"
+    },
+    {
+      "id": 3,
+      "fullName": "Ali",
+      "email": "ali@example.com",
+      "active": true,
+      "createdAt": "2026-11-02T01:44:34.0685457"
+    }
+  ],
+  "stats": {
+    "createdUsers": 0,
+    "getUserByIdCalls": 0
+  },
+  "initializationOrder": [
+    "[Bean before] inMemoryUserRepository",
+    "UserRepository hazirdir, 3 user yuklendi",
+    "[Bean after] inMemoryUserRepository"
+  ],
+  "property": "memory"
+}

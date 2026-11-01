@@ -1,0 +1,183 @@
+newman
+
+Task17 Bean Scopes and DI
+
+→ 01 Qualifier - two Mock User entries
+  GET http://localhost:8082/api/v1/user-info/all [200 OK, 397B, 32ms]
+  √  HTTP 200
+  √  Two Mock Users
+
+→ 02 New client has empty history
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 241B, 7ms]
+  √  New session is empty
+
+→ Create user 1
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 6ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 2
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 6ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 3
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 4ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 4
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 5ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Create user 5
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 291B, 5ms]
+  √  HTTP 201
+  √  Created fields
+
+→ Visit seed user
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Read created user 1
+  GET http://localhost:8082/api/v1/user-info/4 [200 OK, 286B, 5ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 2
+  GET http://localhost:8082/api/v1/user-info/5 [200 OK, 286B, 5ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 3
+  GET http://localhost:8082/api/v1/user-info/6 [200 OK, 286B, 4ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 4
+  GET http://localhost:8082/api/v1/user-info/7 [200 OK, 286B, 5ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ Read created user 5
+  GET http://localhost:8082/api/v1/user-info/8 [200 OK, 286B, 5ms]
+  √  HTTP 200
+  √  Created and found user match
+
+→ History keeps last five
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 4ms]
+  √  Five users in order
+
+→ Revisit user 3
+  GET http://localhost:8082/api/v1/user-info/6 [200 OK, 286B, 5ms]
+  √  HTTP 200
+
+→ History has no duplicates
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 4ms]
+  √  Duplicate moves to front without duplication
+
+→ Missing user - expected exception
+  GET http://localhost:8082/api/v1/user-info/99999 [500 Internal Server Error, 277B, 24ms]
+  √  Unhandled NoSuchElementException gives HTTP 500
+
+→ Missing user did not enter history
+  GET http://localhost:8082/api/v1/user-info/recent [200 OK, 780B, 5ms]
+  √  Duplicate moves to front without duplication
+
+→ Mock list remains fixed
+  GET http://localhost:8082/api/v1/user-info/all [200 OK, 397B, 2ms]
+  √  Fixed two mock entries
+
+→ Singleton repeat 1
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 2
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 3
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 4
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 5
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 6
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 7
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 8
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+→ Singleton repeat 9
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 4ms]
+  √  HTTP 200
+
+→ Singleton repeat 10
+  GET http://localhost:8082/api/v1/user-info/1 [200 OK, 279B, 5ms]
+  √  HTTP 200
+
+□ Bonus 34-37
+└ Scope demo 1
+  GET http://localhost:8082/api/v1/scope-demo [200 OK, 327B, 6ms]
+  √  HTTP 200
+  √  Same singleton, new request and two fresh prototypes
+
+└ Scope demo 2
+  GET http://localhost:8082/api/v1/scope-demo [200 OK, 327B, 4ms]
+  √  HTTP 200
+  √  Same singleton, new request and two fresh prototypes
+
+└ Scope demo 3
+  GET http://localhost:8082/api/v1/scope-demo [200 OK, 327B, 5ms]
+  √  HTTP 200
+  √  Same singleton, new request and two fresh prototypes
+
+└ Statistics baseline
+  GET http://localhost:8082/api/v1/stats [200 OK, 204B, 2ms]
+  √  HTTP 200
+
+└ Create counted user
+  POST http://localhost:8082/api/v1/user-info/create [201 Created, 290B, 4ms]
+  √  HTTP 201
+
+└ Read counted user
+  GET http://localhost:8082/api/v1/user-info/9 [200 OK, 285B, 4ms]
+  √  HTTP 200
+
+└ Statistics after creation and read
+  GET http://localhost:8082/api/v1/stats [200 OK, 204B, 2ms]
+  √  Successful creation counted
+  √  Lookup counted
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              36 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              36 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              51 │               0 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 3.2s                                    │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 5.86kB (approx)                        │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 5ms [min: 2ms, max: 32ms, s.d.: 5ms] │
+└─────────────────────────────────────────────────────────────┘

@@ -1,0 +1,21 @@
+<!doctype html><html lang="az"><meta charset="utf-8"><title>Tapşırıq17 · Bonus34–37</title><style>body{margin:0;background:#edf2f7;color:#152438;font:18px Segoe UI,sans-serif}main{max-width:none;margin:20px auto;padding:0 38px}h1{font-size:32px;margin:0 0 10px}header p{color:#42556c;margin:8px 0 16px}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}section{background:white;border:1px solid #cdd8e6;border-radius:12px;padding:16px;overflow:hidden}h2{font-size:24px;margin:0 0 12px}.source{font:14px Consolas,monospace;color:#52657b}pre{font:17px/1.4 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:12px 0}footer{margin:18px 0;color:#52657b;font-size:16px}</style><main><header><h1>Tapşırıq17 · Bonus 34–37</h1><p>2 noyabr2026 · Real HTTP cavabları və tətbiq log-ları əsasında hesabat.</p></header><div class="grid"><section><h2>34 · Scope demo</h2><p class="source">bonus-http.json</p><pre>AuditId-lər ilk 8 simvolla göstərilir; tam UUID-lər JSON-dadır.
+
+1. singleton=859985937  request=beba6484
+   audits=a182a047... / fb2e376a...
+2. singleton=859985937  request=013fbcce
+   audits=cc67333b... / ab1cf847...
+3. singleton=859985937  request=d4e6085e
+   audits=834e2b3d... / ecb66184...
+</pre></section><section><h2>35 · Application scope</h2><p class="source">bonus-browsers.json</p><pre>Chrome: {&quot;getUserByIdCalls&quot;:21,&quot;createdUsers&quot;:7}
+In-app browser: {&quot;getUserByIdCalls&quot;:21,&quot;createdUsers&quot;:7}
+
+Ayrı HTTP sessions: create=1, lookup=2 → hər ikisində eyni sayğaclar.</pre></section><section><h2>36 · YAML ilə seçim</h2><p class="source">bonus-memory-http.json / bonus-mock-app.log</p><pre>app.repository-type: mock → 2 Mock User
+app.repository-type: memory → Ana, Murad, Ali
+
+Yalnız seçilən repository bean yaradılır.
+Final List&lt;UserRepository&gt;: 1 element.</pre></section><section><h2>37 · Initialization log-u</h2><p class="source">bonus-memory-app.log / bonus-build.log</p><pre>[Bean before] inMemoryUserRepository
+UserRepository hazirdir, 3 user yuklendi
+[Bean after] inMemoryUserRepository
+
+JUnit: 13 test, 0 failure/error
+HTTP: 36 sorğu, 51 assertion, 0 failure</pre></section></div><footer>Bu səhifə hesabatdır; terminal və ya Postman interfeysinin screenshot-u deyil. Tam mənbələr docs/checks qovluğundadır.</footer></main></html>

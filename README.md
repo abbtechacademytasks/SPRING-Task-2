@@ -27,7 +27,8 @@ HTTP yoxlamalarının nəticələri `docs/checks` qovluğundadır. Verilənlər 
 java -jar target/testders-0.0.1-SNAPSHOT.jar --server.port=8082
 ```
 
-Son DI mərhələsində Tapşırıq 29-a görə `mockUserRepository` seçilib. `/all` həmişə iki `Mock User` qaytarır.
+Bölmə 5-də Tapşırıq 29-a görə `mockUserRepository` @Qualifier ilə seçilmişdi.
+Bonus 36-dan sonra seçim `app.repository-type` ilə edilir; default YAML dəyəri `mock`-dur. `/all` həmişə iki `Mock User` qaytarır.
 Mock-da POST ilə yaradılan user öz ID-si ilə GET-də tapılır, amma sabit demo `/all` siyahısına əlavə edilmir.
 Əvvəlki singleton/session mərhələlərinin tam in-memory variantı Git tarixçəsində saxlanılıb.
 
@@ -39,6 +40,8 @@ Mock-da POST ilə yaradılan user öz ID-si ilə GET-də tapılır, amma sabit d
 | GET | `/api/v1/user-info/{id}` | ID ilə istifadəçi |
 | POST | `/api/v1/user-info/create` | Yeni istifadəçi, 201 Created |
 | GET | `/api/v1/user-info/recent` | Cari session-da son beş fərqli istifadəçi |
+| GET | `/api/v1/scope-demo` | Singleton, iki prototype və request ID |
+| GET | `/api/v1/stats` | Application scope sayğacları |
 
 POST body:
 
@@ -231,14 +234,95 @@ Startup log-u: Repository sayi: 2. Siyahının sırasına güvənilmir.
   məsələn bütün istifadəçilərin statistikasını saxlayır. Ortaq dəyişən state yenə thread-safe olmalıdır.
 - Konkret @Qualifier ilə seçim daraldılır; uyğun gəlməyən @Primary bu seçimi əvəz etmir.
 
+## Bölmə 6 Bonus
+
+### Tapşırıq 34
+
+GET /api/v1/scope-demo singleton service-in hashCode-unu, iki ayrı prototype auditId və cari requestId qaytarır.
+HashCode yaddaş ünvanı deyil; bu təcrübədə eyni singleton-a çağırış etdiyimiz üçün dəyişmir.
+Üç real HTTP cavabı aşağıdadır. Altı auditId fərqli, üç requestId fərqli oldu.
+
+| Sorğu | Singleton hashCode | Prototype 1 auditId | Prototype 2 auditId | RequestId |
+| --- | --- | --- | --- | --- |
+| 1 | 859985937 | a182a047-0954-4474-b003-c05c1723525d | fb2e376a-f406-4a09-9f27-7017b6e31198 | beba6484 |
+| 2 | 859985937 | cc67333b-2b0b-4a60-ad88-58236ff270ef | ab1cf847-dda4-40d3-9b01-5be87c7f3819 | 013fbcce |
+| 3 | 859985937 | 834e2b3d-5fcb-4074-8060-59d0c4427014 | ecb66184-89cf-4523-82e1-901eee3065ad | d4e6085e |
+
+### Tapşırıq 35
+
+UserStatistics @ApplicationScope bean-dir. İki AtomicLong bütün sessions üçün ortaqdır.
+createdUsers yalnız service-də uğurlu createUser-dən sonra artır; repository-nin startup seed-ləri sayılmır.
+getUserByIdCalls hər service.getUserById çağırışını, o cümlədən tapılmayan ID-ni sayır.
+/all, /recent və /scope-demo bu sayğacı artırmır. GET /api/v1/stats sayğacları oxuyur.
+Sayğaclar yaddaşdadır, restart zamanı sıfırlanır. İki sayğacın oxunması ayrıca atomikdir, birlikdə transaction deyil.
+
+İki ayrı cookie jar-da bir create və iki lookup etdik: createdUsers=1, getUserByIdCalls=2 hər ikisində eyni oldu.
+Sonrakı tam HTTP run-dan sonra Chrome və in-app browser eyni nəticəni göstərdi: createdUsers=7, getUserByIdCalls=21.
+[Brauzer nəticələri](docs/checks/bonus-browsers.json), [əsas bonus HTTP yoxlaması](docs/checks/bonus-http.json).
+
+### Tapşırıq 36
+
+application.yaml:
+
+```yaml
+app:
+  repository-type: mock
+```
+
+InMemoryUserRepository yalnız memory dəyərində, MockUserRepository yalnız mock dəyərində qeyd olunur
+(@ConditionalOnProperty). Property ümumiyyətlə yoxdursa mock default-dur. Başqa dəyərdə uyğun repository yoxdur,
+tətbiq dependency xətası ilə açılmır. Seçim startup-da edilir; işləyən tətbiqdə YAML-i dəyişmək kifayət etmir.
+
+İki rejimi ayrıca işə saldım: mock → iki Mock User; memory → Ana, Murad, Ali.
+Memory rejimini faylı dəyişmədən də yoxlamaq olar:
+
+```powershell
+java -jar target/testders-0.0.1-SNAPSHOT.jar --server.port=8082 --app.repository-type=memory
+```
+
+Bu bonusda tək bean qaldığı üçün service-də əvvəlki @Qualifier çıxarılıb, List<UserRepository> indi 1 element alır.
+Tapşırıq 29/33 üçün iki bean + Qualifier təcrübəsi task-5 commit-ində və yuxarıdakı log-larda qalır.
+[Memory HTTP](docs/checks/bonus-memory-http.json), [memory startup](docs/checks/bonus-memory-app.log),
+[mock startup](docs/checks/bonus-mock-app.log). Unit test hər iki property dəyərini ayrıca yoxlayır.
+
+### Tapşırıq 37
+
+InitializationLogProcessor BeanPostProcessor implement edir. ClassUtils.getUserClass ilə CGLIB subclass-dan
+əsas class tapılır və yalnız az.iktex. ilə başlayan paketlər üçün before/after initialization yazılır.
+PriorityOrdered bu processor-un before callback-ini @PostConstruct işlədən processor-dan əvvəl yerləşdirir.
+Memory repository üçün real ardıcıllıq:
+
+```text
+UserRepository yaradildi: ...
+[Bean before] inMemoryUserRepository
+UserRepository hazirdir, 3 user yuklendi
+[Bean after] inMemoryUserRepository
+```
+
+Constructor əvvəl işləyir, dependency injection tamamlanır, before callback-lər → PostConstruct/init → after callback-lər gəlir.
+Bu, hər HTTP sorğusunun deyil, bean yaradılmasının lifecycle-ıdır. Request/session/application target-ləri ilk istifadədə
+yarandığına görə scopedTarget.* mesajları ilk uyğun HTTP sorğusunda görünür. Scoped proxy FactoryBean məhsulu üçün
+tək after mesajı da görünə bilər; bu, target-in initialization log-u ilə eyni şey deyil.
+Processor bean-i dəyişdirmədən qaytarır. Spring/Tomcat-ın adi INFO log-larını söndürmür, yalnız öz mesajlarını filtr edir.
+Unit test tətbiq bean-inin log-a düşdüyünü, java.lang.Object-un isə düşmədiyini yoxlayır.
+
+### Bonusların yekun yoxlaması
+
+clean test package:13 JUnit testi, 0 failure/error. Yenilənmiş kolleksiya:36 HTTP sorğusu, 51 assertion, 0 failure.
+[Build](docs/checks/bonus-build.log), [HTTP log-u](docs/checks/bonus-postman-run.log),
+[JSON nəticəsi](docs/checks/bonus-postman-run.json).
+Postman-da 8080 seçsəniz kolleksiyada həm baseUrl, həm bonusUrl dəyişdirilməlidir.
+
+![Bonusların hesabatı](docs/screenshots/bonus-report.png)
+
 ## Əhatə
 
-Məcburi 1–33 tapşırıqları yerinə yetirilib. 34–37 ayrıca, məcburi olmayan bonus bölməsidir və bu versiyaya əlavə edilməyib.
+1–37 tapşırıqları, o cümlədən bütün bonuslar yerinə yetirilib. Bonus 36-dan sonra finalda conditional repository seçimi işləyir.
 Tapşırıq üzrə gözlənən NoSuchElementException üçün ayrıca handler əlavə olunmayıb; olmayan ID HTTP500 verir.
 
 ## Son yoxlamalar
 
-2 noyabr 2026: clean test package — 10 JUnit testi, 0 failure/error.
+Bonusdan əvvəlki Bölmə 1–5 yoxlaması (2 noyabr2026): clean test package —10JUnit,0failure/error. Bonusdan sonrakı nəticə yuxarıda:13JUnit/51HTTPassertion.
 Postman v2.1 kolleksiyasının Newman6.2.3 run-u: 29 HTTP sorğusu, 40 assertion, 0 failure.
 10 təkrar GET zamanı singleton constructor log-ları yenidən çıxmadı.
 Beş create üçün beş fərqli auditId və beş welcome mesajı oldu.

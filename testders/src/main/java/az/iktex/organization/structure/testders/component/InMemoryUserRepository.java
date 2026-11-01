@@ -6,6 +6,7 @@ import az.iktex.organization.structure.testders.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Repository;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
+@ConditionalOnProperty(name = "app.repository-type", havingValue = "memory")
 public class InMemoryUserRepository implements UserRepository {
     private final Map<Long, UserInfoResponse> users = new ConcurrentHashMap<>();
     private final AtomicLong idGenerator = new AtomicLong();

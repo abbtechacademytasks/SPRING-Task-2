@@ -2,6 +2,9 @@ spring:
   application:
     name: testders
 
+app:
+  repository-type: mock
+
 server:
   servlet:
     session:

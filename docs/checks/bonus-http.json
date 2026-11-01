@@ -1,0 +1,42 @@
+{
+  "clientA": {
+    "getUserByIdCalls": 2,
+    "createdUsers": 1
+  },
+  "cookieJars": "two independent HTTP sessions",
+  "scopes": [
+    {
+      "secondAuditId": "fb2e376a-f406-4a09-9f27-7017b6e31198",
+      "requestId": "beba6484",
+      "singletonHashCode": 859985937,
+      "firstAuditId": "a182a047-0954-4474-b003-c05c1723525d"
+    },
+    {
+      "secondAuditId": "ab1cf847-dda4-40d3-9b01-5be87c7f3819",
+      "requestId": "013fbcce",
+      "singletonHashCode": 859985937,
+      "firstAuditId": "cc67333b-2b0b-4a60-ad88-58236ff270ef"
+    },
+    {
+      "secondAuditId": "ecb66184-89cf-4523-82e1-901eee3065ad",
+      "requestId": "d4e6085e",
+      "singletonHashCode": 859985937,
+      "firstAuditId": "834e2b3d-5fcb-4074-8060-59d0c4427014"
+    }
+  ],
+  "created": {
+    "id": 3,
+    "fullName": "Bonus user",
+    "email": "bonus@example.com",
+    "active": true,
+    "createdAt": "2026-11-02T01:43:00.1602929"
+  },
+  "clientB": {
+    "getUserByIdCalls": 2,
+    "createdUsers": 1
+  },
+  "before": {
+    "getUserByIdCalls": 0,
+    "createdUsers": 0
+  }
+}
