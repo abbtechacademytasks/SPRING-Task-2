@@ -251,6 +251,10 @@ Nəticələr konkret ssenariləri yoxlayır, bütün mümkün hallara zəmanət 
 
 ![Chrome session tarixçəsi](docs/screenshots/session-chrome.png)
 
+Incognito-da ilk /recent ayrıca session yaratdı və boş siyahı qaytardı.
+
+![Incognito ayrı session](docs/screenshots/session-incognito.png)
+
 ## Şəkillər və əlavə hesabat
 
 Aşağıdakı dörd şəkil real log-lardan hazırlanmış HTML hesabat səhifələridir;
